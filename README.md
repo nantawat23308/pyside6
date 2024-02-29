@@ -12,16 +12,16 @@ This README would normally document whatever steps are necessary to get your app
 ### How do I get set up? ###
 
 * Summary of set up
-	pipenv
-	python 3.10
+	- pipenv
+	- python 3.10
 * Configuration
-	add PIPENV_VENV_IN_PROJECT = 1
+	- add PIPENV_VENV_IN_PROJECT = 1
 * Dependencies
-	pip install pipenv
+	- pip install pipenv
 * Database configuration
 * How to run tests
 * Deployment instructions
-	pipenv sync
+	- pipenv sync
 
 ### Contribution guidelines ###
 
