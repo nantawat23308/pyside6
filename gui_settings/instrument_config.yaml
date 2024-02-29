@@ -1,0 +1,65 @@
+# Project: TOSA Manufacture Calibration Station
+# Instruments Configuration
+
+opm:
+  # filename of the instrument driver
+  device: keysight_opm
+  # network interface
+  controller: VISAInterface
+  #  addr: TCPIP0::172.16.0.155::inst0::INSTR
+  addr: TCPIP0::69.112.10.207::inst0::INSTR
+  # instr settings at init
+  config:
+    channel: 1
+    avg_time: 0.1  # 20 ms averaging time to measure the power
+    pwr_unit: dBm
+    wl: 1550
+    pwr_range_auto: 1
+
+osw:
+  # filename of the instrument driver
+  device: santec_osw
+  # network interface
+  controller: VISAInterface
+  addr: TCPIP0::69.112.10.238::5025::SOCKET
+  # instr settings at init
+  config:
+    channel: 1
+
+wlm:
+  # filename of the instrument driver
+  device: bristol_wm
+  # network interface
+  controller: TelnetInterface
+#  addr: '172.16.0.150'
+  addr: '69.112.10.201'
+  port: 23
+  skip_msg: True
+#  skip_msg: False
+  # instr settings at init
+  config:
+    meas_method: 'MEAS'
+    pow_unit: 'DBM'
+    wavelen_unit: 'THZ'
+    avg_stat: 'OFF'
+    pow_offset: 'OFF'
+    wave_lmt_start: 1521
+    wave_lmt_end: 1578
+    smsr_mode: '1'
+    smsr_stat: 'ON'
+    smsr_excl: 0.1
+    smsr_rng: 6.1
+
+single channel laser:
+  device:
+  controller:
+  addr: COM1
+  config:
+    power_mW: 10
+
+temp_chamber:
+  # filename of the instrument driver
+  device: CybortronicsSR
+  addr: COM4
+  # instr settings at init
+  config:

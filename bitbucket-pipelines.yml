@@ -1,0 +1,26 @@
+image: python:3.10.9
+
+pipelines:
+  pull-requests:
+    '**':
+      - parallel:
+        - step:
+            name: Lint
+            script:
+              # Enforce style consistency across Python projects https://flake8.pycqa.org/en/latest
+              - pip install flake8
+              - flake8 . --extend-exclude=dist,build --show-source --statistics --max-line-length=120
+        # Disable below until unit testing is implemented
+        # - step:
+            # name: Test
+            # caches:
+              # - pip
+            # script:
+              # - apt-get update && apt-get install -y libgl1 libgl1-mesa-glx ffmpeg libsm6 libxext6
+              # - pip install --upgrade pip
+              # - pip install --upgrade setuptools
+              # - pip install pipenv
+              # - python -m pipenv requirements > requirements.txt
+              # - if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+              # - pip install pytest
+              # - pytest -v --junitxml=test-reports/report.xml

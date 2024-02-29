@@ -1,0 +1,29 @@
+version: 1
+formatters:
+  detailed:
+    class: 'logging.Formatter'
+    format: '[%(asctime)s][%(name)s][%(levelname)s][%(processName)s][%(threadName)s] %(filename)15s %(funcName)8s line: %(lineno)d %(levelname)5s %(message)s'
+handlers:
+  console:
+    class: 'logging.StreamHandler'
+    level: 'INFO'
+#    level: 'DEBUG'
+    formatter: 'detailed'
+    stream: 'ext://sys.stdout'
+  file:
+    class: 'logging.FileHandler'
+    filename: 'tosa_cal.log'
+    mode: 'w'
+#    level: 'INFO'
+    level: 'DEBUG'
+    formatter: 'detailed'
+#  errors:
+#    class: 'logging.FileHandler'
+#    filename: 'mplog-errors.log'
+#    mode: 'w'
+#    level: 'ERROR'
+#    formatter: 'detailed'
+root:
+  level: 'DEBUG'
+  handlers: [ 'console', 'file']
+#  handlers: [ 'console', 'file', 'errors' ]

@@ -1,0 +1,13 @@
+# limit value
+
+version: 1
+date_update: 2023-Dec-15
+
+laser_source:
+  limit_name: Laser Initial Verify Power
+  CRP_high: 10.5
+  CRP_low: 0
+path_loss:
+  limit_name: Path Loss in Optic Cable
+  loss_high: 10
+  loss_low: 6
